@@ -15,7 +15,10 @@ body {
   --light-c: hsl(0, 0%, 85%);
   --light-d: hsl(0, 0%, 80%);
   /* SPECIAL COLORS */
-  --hoverable: hsl(160, 80%, 20%);
+  --hoverable: hsl(180, 80%, 20%);
+  --hoverable-hovered: hsl(180, 80%, 30%);
+  --clickable: hsl(300, 80%, 20%);
+  --clickable-hovered: hsl(300, 80%, 30%);
 }
 
 #left-column {
@@ -69,6 +72,35 @@ body {
 .hoverable {
   color: var(--hoverable);
   font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+.hoverable:hover {
+  color: var(--hoverable-hovered);
+}
+.hoverable .info-card {
+  visibility: hidden;
+  opacity: 0;
+  width: 250px;
+  background-color: var(--dark-d);
+  color: var(--light-a);
+  border: 1px solid var(--light-d);
+  border-radius: 8px;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out;
+}
+.hoverable:hover .info-card {
+  visibility: visible;
+  opacity: 0.95;
 }
 
-/*# sourceMappingURL=index.css.map */
+.clickable {
+  color: var(--clickable);
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+}
+.clickable:hover {
+  color: var(--clickable-hovered);
+}
