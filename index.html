@@ -6,7 +6,10 @@
 </head>
 <body>
   <div id="left-column">
-    <p>text</p>
+    themes:
+    <span class="circle" style="background-color: hsl(0, 0%, 20%);"   onclick="setTheme('dark')"></span>
+    <span class="circle" style="background-color: hsl(0, 100%, 30%);" onclick="setTheme('red')"></span>
+    <span class="circle" style="background-color: hsl(0, 0%, 80%);"   onclick="setTheme('light')"></span>
   </div>
   <div id="right-column">
     <h1 style="margin-bottom: 0px;">AmirMohammad Bandari</h1>
@@ -70,6 +73,16 @@
     I am not sure.
 
     <footer>last update: Oct 29, 2025</footer>
+
+
+    <script>
+      function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      }
+      const savedTheme = localStorage.getItem('theme') || light;
+      setTheme(savedTheme);
+    </script>
   </div>
 </body>
 </html>

@@ -1,20 +1,14 @@
-body {
-  margin: 0;
-  font-family: sans-serif;
-  display: flex;
-  overflow: hidden;
-  height: 100vh;
-  font-size: 1.2vw;
-  /* DARK COLORS */
-  --dark-a: hsl(0, 0%, 5%);
-  --dark-b: hsl(0, 0%, 10%);
-  --dark-c: hsl(0, 0%, 15%);
-  --dark-d: hsl(0, 0%, 20%);
-  /* LIGHT COLORS */
-  --light-a: hsl(0, 0%, 95%);
-  --light-b: hsl(0, 0%, 90%);
-  --light-c: hsl(0, 0%, 85%);
-  --light-d: hsl(0, 0%, 80%);
+:root {
+  /* BASE COLORS */
+  --base-a: hsl(0, 0%, 5%);
+  --base-b: hsl(0, 0%, 10%);
+  --base-c: hsl(0, 0%, 15%);
+  --base-d: hsl(0, 0%, 20%);
+  /* TEXT COLORS */
+  --text-a: hsl(0, 0%, 95%);
+  --text-b: hsl(0, 0%, 90%);
+  --text-c: hsl(0, 0%, 85%);
+  --text-d: hsl(0, 0%, 80%);
   /* SPECIAL COLORS */
   --hoverable: hsl(180, 80%, 20%);
   --hoverable-hovered: hsl(180, 80%, 30%);
@@ -22,40 +16,83 @@ body {
   --clickable-hovered: hsl(300, 80%, 30%);
 }
 
+[data-theme=light] {
+  /* BASE COLORS */
+  --base-a: hsl(0, 0%, 95%);
+  --base-b: hsl(0, 0%, 90%);
+  --base-c: hsl(0, 0%, 85%);
+  --base-d: hsl(0, 0%, 80%);
+  /* TEXT COLORS */
+  --text-a: hsl(0, 0%, 5%);
+  --text-b: hsl(0, 0%, 10%);
+  --text-c: hsl(0, 0%, 15%);
+  --text-d: hsl(0, 0%, 20%);
+}
+
+[data-theme=red] {
+  /* BASE COLORS */
+  --base-a: hsl(0, 0%, 5%);
+  --base-b: hsl(0, 0%, 10%);
+  --base-c: hsl(0, 0%, 15%);
+  --base-d: hsl(0, 0%, 20%);
+  /* TEXT COLORS */
+  --text-a: hsl(0, 100%, 35%);
+  --text-b: hsl(0, 100%, 30%);
+  --text-c: hsl(0, 100%, 25%);
+  --text-d: hsl(0, 100%, 20%);
+}
+
+.circle {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  display: inline-flex;
+  border: 1px solid var(--text-a);
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+  font-size: 1.2vw;
+}
+
 #left-column {
   width: 20%;
-  background-color: var(--dark-b);
+  background-color: var(--base-b);
   padding: 20px;
-  color: var(--light-d);
+  color: var(--text-d);
 }
 #left-column h1 {
-  color: var(--light-b);
+  color: var(--text-b);
 }
 #left-column h2 {
-  color: var(--light-c);
+  color: var(--text-c);
 }
 
 #right-column {
   width: 80%;
-  background-color: var(--dark-a);
+  background-color: var(--base-a);
   padding-top: 20px;
   padding-left: 10vw;
   padding-right: 10vw;
-  color: var(--light-c);
+  color: var(--text-c);
   overflow: auto;
 }
 #right-column h1 {
   text-align: center;
-  color: var(--light-a);
+  color: var(--text-a);
 }
 #right-column h2 {
-  color: var(--light-b);
+  color: var(--text-b);
 }
 #right-column h2::after {
   content: "";
   display: block;
   width: 70%;
-  border-bottom: 1px solid var(--light-d);
+  border-bottom: 1px solid var(--text-d);
   /* margin: .5em 0; */
   margin: 0px;
 }
@@ -67,7 +104,7 @@ body {
 }
 #right-column footer {
   text-align: center;
-  color: var(--dark-d);
+  color: var(--base-d);
 }
 
 .hoverable {
@@ -82,15 +119,15 @@ body {
   visibility: hidden;
   opacity: 0;
   width: 250px;
-  background-color: var(--dark-d);
-  color: var(--light-a);
+  background-color: var(--base-d);
+  color: var(--text-a);
+  border-radius: 3px;
   padding: 10px;
   position: absolute;
-  z-index: 10;
-  transition: opacity 0.5s ease-in-out;
   top: 2vh;
   right: -10vw;
-  border-radius: 3px;
+  z-index: 10;
+  transition: opacity 0.5s ease-in-out;
 }
 .hoverable:hover .info-card {
   visibility: visible;
