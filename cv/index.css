@@ -64,6 +64,7 @@ body {
   background-color: var(--base-b);
   padding: 0.8vw;
   color: var(--text-d);
+  overflow: auto;
 }
 #left-column h1 {
   color: var(--text-b);
